@@ -20,12 +20,14 @@ function getData(sample)
 
         // clear the metadata out
         d3.select("#sample-metadata").html(""); // clears the HTML out
+        let panel = d3.select("#sample-metadata");
+        panel.html("");
 
         // use Object.entries to get the value key pairs
         Object.entries(resultData).forEach(([key, value]) =>{
             // add to the sample data / demographics section
-            d3.select("#sample-metadata")
-                .append("h5").text(`${key}: ${value}`);
+            
+          panel.append("h6").text(`${key}: ${value}`);
         });
 
         // use the metadata to build the gauge
@@ -126,7 +128,6 @@ function graphBubble(sample)
 }
 
 
-
 //function to initalize dashboard
 
 function getReady()
@@ -159,6 +160,8 @@ function getReady()
         graphBar(sample1);
         // call function to build the bubble chart
         graphBubble(sample1);
+        buildGauge(sample1);
+        
     });
 
 
@@ -174,8 +177,8 @@ function optionChanged(item)
       graphBar(item);
       // call function to build the bubble chart
       graphBubble(item);
-      // call function to update gauge
       buildGauge(item);
+      
 }
 
  
