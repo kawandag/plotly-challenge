@@ -2,6 +2,10 @@ function buildGauge(sample)
 {
     //console.log(sample);
     wfreq = sample.wfreq;
+      if (wfreq == null) {
+        wfreq = 0;
+    }
+    
 
     // Enter the washing frequency between 0 and 180
     var level = parseFloat(wfreq) * 20;
