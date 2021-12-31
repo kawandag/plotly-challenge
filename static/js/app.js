@@ -174,6 +174,8 @@ function optionChanged(item)
       graphBar(item);
       // call function to build the bubble chart
       graphBubble(item);
+      // call function to update gauge
+      buildGauge(item);
 }
 
  
